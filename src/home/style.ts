@@ -443,6 +443,16 @@ export const MintedBalance = styled.div`
     color: ${color.primary};
   }
 `;
+export const CollectionAddress = styled.div`
+  margin-top: 16px;
+  font-size: 14px;
+  color: ${color.whiteShade};
+  cursor: pointer;
+
+  &:hover {
+    color: ${color.primary};
+  }
+`;
 
 export const MintedNfts = styled.div`
   width: 100%;

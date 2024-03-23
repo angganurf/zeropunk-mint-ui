@@ -8,7 +8,7 @@ import { getSigningCosmWasmClient } from "@sei-js/core"
 import { SigningCosmWasmClient } from "@cosmjs/cosmwasm-stargate"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faDiscord, faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { faCircleNotch, faGlobe } from "@fortawesome/free-solid-svg-icons"
+import { faCircleNotch, faExternalLinkSquare, faGlobe } from "@fortawesome/free-solid-svg-icons"
 import BigNumber from "bignumber.js"
 import { Timer } from "components/timer"
 import { GasPrice } from "@cosmjs/stargate";
@@ -17,9 +17,10 @@ import { MerkleTree } from 'merkletreejs';
 import { toast } from "react-hot-toast"
 import MintedModal from "components/mintedModal"
 import axios from "axios"
+import CopyCA from "components/copyCA"
 
-const LIGHTHOUSE_CONTRACT_ATLANTIC_2 = "sei12gjnfdh2kz06qg6e4y997jfgpat6xpv9dw58gtzn6g75ysy8yt5snzf4ac"
-const LIGHTHOUSE_CONTRACT_PACIFIC_1 = "sei1hjsqrfdg2hvwl3gacg4fkznurf36usrv7rkzkyh29wz3guuzeh0snslz7d"
+const LIGHTHOUSE_CONTRACT_ATLANTIC_2 = "sei1yyzym72w2cvm5jh2x3m85k6a5w882sdzw0pxzxjgsf658jwjpu4qlw56q0"
+const LIGHTHOUSE_CONTRACT_PACIFIC_1 = "sei1pzgua9cjgz3nxz8z4urvp2sfu8mhp9g646r57ta9jdk980j8eaysgnfswa"
 
 const getLighthouseContract = (network: string) => {
     if (network === "pacific-1") {
@@ -549,6 +550,42 @@ const Home = () => {
                             <C.LaunchBg></C.LaunchBg>
                             {!showMintedNfts && (
                                 <>
+                                                                    <C.LaunchMint>
+                                        <C.TitleMobile>
+                                            {config.name}
+                                        </C.TitleMobile>
+                                        <C.Image>
+                                            <img src="/images/launch.gif" alt="launch" />
+                                        </C.Image>
+                                        <C.MintInfo>
+                                            <C.Price>
+                                                Price: <span>{new BigNumber(currentPhase.unit_price).div(1e6).times(amount).toString()} SEI</span>
+                                            </C.Price>
+                                            <C.Amount>
+                                                <C.AmountButton onClick={decrementAmount}>
+                                                    &minus;
+                                                </C.AmountButton>
+                                                <C.AmountValue ref={amountInput} type="number" step="1" min={1} defaultValue={1} onChange={onAmountChange} />
+                                                <C.AmountButton onClick={incrementAmount}>
+                                                    &#43;
+                                                </C.AmountButton>
+                                            </C.Amount>
+                                        </C.MintInfo>
+                                        <C.MintButton onClick={mint} disabled={walletWhitelisted === false || collection.supply - collection.mintedSupply <= 0}>
+                                            {collection.supply - collection.mintedSupply <= 0 ? (
+                                                <>Sold Out!</>
+                                            ) : (
+                                                <>{walletWhitelisted === true ? 'Mint' : 'Not Whitelisted'}</>
+                                            )}
+                                        </C.MintButton>
+                                        {myMintedNfts.length > 0 && (
+                                            <C.MintedBalance onClick={() => loadMinted()}>
+                                                You have minted <span>{myMintedNfts.length}</span> {myMintedNfts.length === 1 ? 'NFT' : 'NFTs'}
+                                            </C.MintedBalance>
+                                        )}
+                                    </C.LaunchMint>
+                                    <C.Mid></C.Mid>
+
                                     <C.LaunchInfo>
                                         <C.Title>{config.name}</C.Title>
                                         <C.TotalMinted>
@@ -560,7 +597,18 @@ const Home = () => {
                                         </C.TotalMinted>
 
                                         <C.Description>{config.description}</C.Description>
-
+                                        <C.Links>
+                                        <C.Link href="https://www.seiscan.app/pacific-1/contracts/sei1pzgua9cjgz3nxz8z4urvp2sfu8mhp9g646r57ta9jdk980j8eaysgnfswa" 
+                                            target="_blank" rel="noreferrer">
+                                            <C.MintedBalance>
+                                             Smart Contract : <span> {'sei1pzgua9c....gnfswa '} <FontAwesomeIcon icon={faExternalLinkSquare} /></span>
+                                            </C.MintedBalance>
+                                            
+                                        </C.Link>
+                                        </C.Links>
+                                        <C.CollectionAddress>
+                                            <CopyCA display="CA • sei1l64yku05quss....a0q3a" text="sei1l64yku05quss2f0c3w6mxvsezgg7m96s4mmfmr00xgp6kl9k026qva0q3a" />
+                                        </C.CollectionAddress>
                                         {(config.website || config.twitter || config.discord) && (
                                             <C.Links>
                                                 {config.website &&
@@ -613,41 +661,8 @@ const Home = () => {
                                             ))}
                                         </C.Phases>
                                     </C.LaunchInfo>
-                                    <C.Mid></C.Mid>
-                                    <C.LaunchMint>
-                                        <C.TitleMobile>
-                                            {config.name}
-                                        </C.TitleMobile>
-                                        <C.Image>
-                                            <img src="/images/launch.gif" alt="launch" />
-                                        </C.Image>
-                                        <C.MintInfo>
-                                            <C.Price>
-                                                Price: <span>{new BigNumber(currentPhase.unit_price).div(1e6).times(amount).toString()} SEI</span>
-                                            </C.Price>
-                                            <C.Amount>
-                                                <C.AmountButton onClick={decrementAmount}>
-                                                    &minus;
-                                                </C.AmountButton>
-                                                <C.AmountValue ref={amountInput} type="number" step="1" min={1} defaultValue={1} onChange={onAmountChange} />
-                                                <C.AmountButton onClick={incrementAmount}>
-                                                    &#43;
-                                                </C.AmountButton>
-                                            </C.Amount>
-                                        </C.MintInfo>
-                                        <C.MintButton onClick={mint} disabled={walletWhitelisted === false || collection.supply - collection.mintedSupply <= 0}>
-                                            {collection.supply - collection.mintedSupply <= 0 ? (
-                                                <>Sold Out!</>
-                                            ) : (
-                                                <>{walletWhitelisted === true ? 'Mint' : 'Not Whitelisted'}</>
-                                            )}
-                                        </C.MintButton>
-                                        {myMintedNfts.length > 0 && (
-                                            <C.MintedBalance onClick={() => loadMinted()}>
-                                                You have minted <span>{myMintedNfts.length}</span> {myMintedNfts.length === 1 ? 'NFT' : 'NFTs'}
-                                            </C.MintedBalance>
-                                        )}
-                                    </C.LaunchMint>
+                                    
+
                                 </>
                             )}
 
