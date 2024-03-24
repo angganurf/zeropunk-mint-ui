@@ -132,7 +132,10 @@
                 "sei1pavyhfymsv8l4e0mfaen2yvqph4gne2zxzev7d",
                 "sei133ralq3ngdwz7fw9yzc6t3hxfprpzlj8d5f5uw",
                 "sei1fuuz7wcdljvxxlaz3e2p9yc06evhqevnex04rg",
-                "sei1jfxqkeswqa8fnl3u53jd0jpne4vzf2x9l447t7"
+                "sei1jfxqkeswqa8fnl3u53jd0jpne4vzf2x9l447t7",
+                "sei1aplmft5238lx295cltvckejuwjdzhz4tw2kl37",
+                "sei1kdh279lw8d8wt4g9gyftfxymfz9qk4a770ph2y",
+                "sei1r5ftgs4fk786ckqz0gqmzlp26puwk3kah2ut3h"
             ] 
         },
         {
@@ -3426,8 +3429,20 @@
                 "sei18qjnhw72qtulevtpff3ezt9308m34j4q5fmhy0",
                 "sei1aj5yggp6wrv6egslf7p88s5l40zht28lglg9fp",
                 "sei1jzf54sfrnqpsf4yktln2f6hellj83da7hcmctq",
-                "sei19aalp89nvslqsar36mzsdqlyxuf8ht5z9k46qc"
+                "sei19aalp89nvslqsar36mzsdqlyxuf8ht5z9k46qc",
+                "sei16s569n34usexw20mnlulfj3h560m92fap8h4pn",
+                "sei1l54vj7y0seas32mgw6jzfc5xjwcgp7q4yd5st9",
+                "sei1aygn25d8ewz0xn5pwjh3m4d7du2eh9vg7vtkud",
+                "sei1ndeamessmqar44dl4rkvr5gctcpvdff8pz87fk",
+                "sei1pavyhfymsv8l4e0mfaen2yvqph4gne2zxzev7d",
+                "sei133ralq3ngdwz7fw9yzc6t3hxfprpzlj8d5f5uw",
+                "sei1fuuz7wcdljvxxlaz3e2p9yc06evhqevnex04rg",
+                "sei1jfxqkeswqa8fnl3u53jd0jpne4vzf2x9l447t7",
+                "sei1aplmft5238lx295cltvckejuwjdzhz4tw2kl37",
+                "sei1kdh279lw8d8wt4g9gyftfxymfz9qk4a770ph2y",
+                "sei1r5ftgs4fk786ckqz0gqmzlp26puwk3kah2ut3h"
             ]
+            
         },
         {
             "name":"public"
