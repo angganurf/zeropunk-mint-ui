@@ -6,6 +6,7 @@ export const Home = styled.div`
   background-color: ${color.bg};
   min-height: 100vh;
   height: 100%;
+  margin-bottom: 40px;
 `;
 
 export const Bg = styled.div`
@@ -266,6 +267,7 @@ export const Link = styled.a`
 
 export const Phases = styled.div`
   margin-top: 24px;
+  margin-bottom: 24px;
 `;
 
 export const Phase = styled.div<{ active: string; switch?: string }>`
