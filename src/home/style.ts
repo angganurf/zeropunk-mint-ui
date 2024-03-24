@@ -43,7 +43,7 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
-  padding-top: 76px;
+  padding-top: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,11 +59,12 @@ export const Header = styled.div`
 
 export const Logo = styled.img`
   width: 247px;
+  padding-bottom: 20px;
 `;
 
 export const WalletConnect = styled.button`
-  background-color: ${color.primary};
-  color: ${color.black};
+  background-color: #C13541;
+  color: ${color.primary};
   padding: 0px 24px;
   height: 43px;
   display: flex;
@@ -111,12 +112,13 @@ export const Launch = styled.div<{ showMintedNfts?: string }>`
   background: linear-gradient(180deg, #121212 0%, #000000 100%);
   box-shadow: 0px 11.8109px 53.1492px rgba(0, 0, 0, 0.35);
   border-radius: 16px;
-  padding: 70px 56px;
+  // padding: 70px 56px;
+  padding-top: 50px;
   display: flex;
   position: relative;
   &::before {
     pointer-events: none;
-    content: "";
+   
     position: absolute;
     inset: 0;
     border-radius: 16px;
@@ -140,7 +142,7 @@ export const Launch = styled.div<{ showMintedNfts?: string }>`
     `}
 
   @media (max-width: 768px) {
-    flex-direction: column-reverse;
+    flex-direction: column;
     padding: 24px;
 
     ${(props) =>
@@ -166,7 +168,7 @@ export const LaunchBg = styled.div`
 `;
 
 export const Mid = styled.div`
-  flex: 0.33;
+  flex: 0.13;
 `;
 
 export const Loading = styled.div`

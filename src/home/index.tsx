@@ -502,7 +502,7 @@ const Home = () => {
             }
         } else {
 
-            let placeholder_metadata = await axios.get(collection.placeholder_token_uri).then((response) => response.data)
+             let placeholder_metadata = await axios.get(collection.placeholder_token_uri).then((response) => response.data)
 
             for (let i = 0; i < myMintedNfts.length; i++) {
                 metadata.push({
@@ -521,7 +521,7 @@ const Home = () => {
 
     return (
         <C.Home>
-            <C.Bg><Bg /></C.Bg>
+            {/* <C.Bg><Bg /></C.Bg> */}
             <C.Container>
                 <C.Header>
                     <C.Logo src="/images/logo.png" />
@@ -550,12 +550,12 @@ const Home = () => {
                             <C.LaunchBg></C.LaunchBg>
                             {!showMintedNfts && (
                                 <>
-                                                                    <C.LaunchMint>
+                                    <C.LaunchMint>
                                         <C.TitleMobile>
                                             {config.name}
                                         </C.TitleMobile>
                                         <C.Image>
-                                            <img src="/images/launch.gif" alt="launch" />
+                                            <img src="/images/launch.png" alt="launch" />
                                         </C.Image>
                                         <C.MintInfo>
                                             <C.Price>
@@ -661,7 +661,8 @@ const Home = () => {
                                             ))}
                                         </C.Phases>
                                     </C.LaunchInfo>
-                                    
+                                   
+
 
                                 </>
                             )}
