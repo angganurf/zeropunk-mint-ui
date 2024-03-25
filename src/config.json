@@ -10,6 +10,13 @@
     "nft_name_type": "default",
     "groups":[
         {
+            "name": "Team",
+            "allowlist": [
+                "sei14r5f3pr8upzytmmxs6lvrjcn8r2w4mcytx4q6s",
+                "sei17qcd5z97yhwwugl7weepx0s3053d70ueclg9zk"
+            ]
+        },
+        {
             "name":"OG Freemint",
             "allowlist":[
                 "sei12dxay8v7px7ad9vlvl0d5t965hgass7l4g58gj",
@@ -135,7 +142,8 @@
                 "sei1jfxqkeswqa8fnl3u53jd0jpne4vzf2x9l447t7",
                 "sei1aplmft5238lx295cltvckejuwjdzhz4tw2kl37",
                 "sei1kdh279lw8d8wt4g9gyftfxymfz9qk4a770ph2y",
-                "sei1r5ftgs4fk786ckqz0gqmzlp26puwk3kah2ut3h"
+                "sei1r5ftgs4fk786ckqz0gqmzlp26puwk3kah2ut3h",
+                "sei1fjg4xzcqgugg950f5futzuecaky46zy2p8qmth"
             ] 
         },
         {
@@ -3440,7 +3448,8 @@
                 "sei1jfxqkeswqa8fnl3u53jd0jpne4vzf2x9l447t7",
                 "sei1aplmft5238lx295cltvckejuwjdzhz4tw2kl37",
                 "sei1kdh279lw8d8wt4g9gyftfxymfz9qk4a770ph2y",
-                "sei1r5ftgs4fk786ckqz0gqmzlp26puwk3kah2ut3h"
+                "sei1r5ftgs4fk786ckqz0gqmzlp26puwk3kah2ut3h",
+                "sei10x53lrcuy95kc3hwk7a0mzfvd8vz0y0yk4lpf8"
             ]
             
         },
